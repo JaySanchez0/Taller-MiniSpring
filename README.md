@@ -37,6 +37,11 @@ Con funciones get cuenta con las siguientes
 
 La funcion addPeople es con motivos practicos ya que esta peticion realmente deberia corresponder a people con el metodo post.
 
+### Ejecutar
+
+~~~
+    mvn exec:java -Dexec.mainClass=com.app.App
+~~~
 
 ### Prueba contenido estatico
 
