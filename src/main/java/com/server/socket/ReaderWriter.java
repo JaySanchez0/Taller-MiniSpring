@@ -64,7 +64,7 @@ public class ReaderWriter {
     public void write(BufferedImage img, String ext, Socket client,String header){
         try {
             ByteArrayOutputStream by = new ByteArrayOutputStream();
-            ext = ext.substring(1);
+            ext = ext.substring(1).toLowerCase();
             ImageIO.write(img,ext,by);
             out.write(header);
             client.getOutputStream().write(by.toByteArray());

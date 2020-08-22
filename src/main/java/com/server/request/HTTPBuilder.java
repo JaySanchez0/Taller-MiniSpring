@@ -14,7 +14,7 @@ public class HTTPBuilder {
     }
 
     public static String responseImage(String ext){
-        ext = ext.substring(1);
+        ext = ext.substring(1).toLowerCase();
         return "\"HTTP/1.1 200 OK\\r\\nContent-Type: image/"+ext+"\\r\\n\\r\\n\"";
     }
 
