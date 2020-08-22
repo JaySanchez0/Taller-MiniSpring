@@ -46,17 +46,29 @@ Al pedir el directorio root del sitio deberia cargar el index.html
 
 Al pedir /js/app.js deberia mostrar el javascript
 
+[ver](https://enigmatic-springs-51558.herokuapp.com/js/app.js)
+
 ![img](img/js.PNG)
 
 Al pedir /style.css deberia mostrar la hoja de estilos.
 
 ![img](img/css.PNG)
 
+[ver](https://enigmatic-springs-51558.herokuapp.com/style.css)
+
 Al pedir /porter2.PNG deberia mostrar la imagen
 
 ![img](img/imagen.PNG) 
 
+[ver](https://enigmatic-springs-51558.herokuapp.com/porter2.PNG)
 
+### Pruebas
+
+![ver](img/test.PNG)
+
+~~~
+    mvn test
+~~~
 
 ### Referencias
 

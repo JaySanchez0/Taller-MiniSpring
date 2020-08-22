@@ -13,8 +13,8 @@ public class App {
         staticFiles("static");
         get("/peoples",(request)->json(service.getPeoples()));
         get("/addPeople",(request)->{
-            System.out.println(request.getParameter("name")+" age:"+request.getParameter("age")+" country:"+request.getParameter("country"));
-            System.out.println();
+            //System.out.println(request.getParameter("name")+" age:"+request.getParameter("age")+" country:"+request.getParameter("country"));
+            //System.out.println();
            service.addPeople(new People(request.getParameter("name"),Integer.parseInt(request.getParameter("age")), request.getParameter("country")));
            return "";
         });
