@@ -100,7 +100,7 @@ public class SocketApp extends ServerSocket implements Runnable {
             String content = fileResolve.readFile(file);
             readerWriter.write(HTTPBuilder.response(200,content));
         }else if(ext != null && (ext.equals(".PNG") || ext.equals(".JPG")) && file!=null && request.getMethod().equals("GET")){
-            readerWriter.write(fileResolve.getImage(file),ext,client,HTTPBuilder.responseImage(ext));
+            readerWriter.write(fileResolve.getImage(file),ext,client);
         }else if(f!=null){
             //System.out.println("Entro funcion");
             readerWriter.write(HTTPBuilder.response(200,f.apply(request)));

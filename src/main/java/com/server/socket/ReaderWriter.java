@@ -1,5 +1,7 @@
 package com.server.socket;
 
+import com.server.request.HTTPBuilder;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -61,13 +63,14 @@ public class ReaderWriter {
      * @param ext extencion de la imagen
      * @param client el socket a quien tengo que entregar la imagen
      */
-    public void write(BufferedImage img, String ext, Socket client,String header){
+    public void write(BufferedImage img, String ext, Socket client){
         try {
             ByteArrayOutputStream by = new ByteArrayOutputStream();
             ext = ext.substring(1).toLowerCase();
             ImageIO.write(img,ext,by);
-            out.write(header);
-            client.getOutputStream().write(by.toByteArray());
+            byte[] arr = by.toByteArray();
+            out.write(HTTPBuilder.responseImage(ext,arr.length));
+            client.getOutputStream().write(arr);
             client.getOutputStream().flush();
             client.getOutputStream().close();
             in.close();
