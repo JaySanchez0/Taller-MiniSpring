@@ -66,7 +66,7 @@ public class Request {
      * @return string resultado como parametro
      */
     public String getParameter(String param){
-        return parameters.get("param");
+        return parameters.get(param);
     }
 
     /**
@@ -127,6 +127,7 @@ public class Request {
         for(String sq: params){
             String[] itemQuery = sq.split("=");
             map.put(itemQuery[0],itemQuery[1]);
+            System.out.println(itemQuery[0]+" "+itemQuery[1]);
         }
         return map;
     }

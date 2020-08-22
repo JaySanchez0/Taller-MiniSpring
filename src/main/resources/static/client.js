@@ -1,4 +1,0 @@
-var client = (function(){
-    return{
-    };
-})();

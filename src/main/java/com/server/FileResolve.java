@@ -1,5 +1,8 @@
 package com.server;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
@@ -50,6 +53,15 @@ public class FileResolve {
             return "";
         }
 
+    }
+
+    public BufferedImage getImage(File file){
+        try {
+            BufferedImage  img = ImageIO.read(file);
+            return img;
+        } catch (IOException e) {
+            return null;
+        }
     }
 
 }

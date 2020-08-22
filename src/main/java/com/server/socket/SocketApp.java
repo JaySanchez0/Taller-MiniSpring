@@ -3,6 +3,8 @@ package com.server.socket;
 import com.server.FileResolve;
 import com.server.request.HTTPBuilder;
 import com.server.request.Request;
+
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -68,6 +70,18 @@ public class SocketApp extends ServerSocket implements Runnable {
     }
 
     /**
+     * Completa el tamaño del path para poder validar si tiene alguna estension
+     * @param path
+     * @return
+     */
+    private boolean validTextFormat(String path){
+        String tmp ="xxxxxxxxxxx"+path;
+        return tmp.substring(tmp.length()-5).equals(".html") ||
+                tmp.substring(tmp.length()-3).equals(".js") ||
+                tmp.substring(tmp.length()-4).equals(".css");
+    }
+
+    /**
      *
      * @param client el socket que se conecto a nuestro servidor
      * @param request los datos relevantes de la solictud http
@@ -75,14 +89,21 @@ public class SocketApp extends ServerSocket implements Runnable {
      */
     public void response(Socket client,Request request) throws IOException {
         File file = fileResolve.getFile(staticFolder+request.getPath());
+        String path = "";
+        if(file!=null) path = file.getPath();
+        //Extension del archivo a cargar
+        String ext = "";
+        if(path!=null && path.length()>=4) ext = path.substring(path.length()-4);
+        //Funcion asociada al path
         Function<Request,String> f = procedures.get(new FunctionRequest(request.getPath(),request.getMethod()));
-        if(staticFolder!=null && request.getMethod().equals("GET") && file!=null && file.exists()){
+        if(ext!=null && validTextFormat(path) && staticFolder!=null && request.getMethod().equals("GET") && file!=null){
             String content = fileResolve.readFile(file);
-            //System.out.println(HTTPBuilder.response(200,content));
             readerWriter.write(HTTPBuilder.response(200,content));
+        }else if(ext != null && (ext.equals(".PNG") || ext.equals(".JPG")) && file!=null && request.getMethod().equals("GET")){
+            readerWriter.write(fileResolve.getImage(file),ext,client,HTTPBuilder.responseImage(ext));
         }else if(f!=null){
-            String resp = f.apply(request);
-            readerWriter.write(HTTPBuilder.response(200,resp));
+            //System.out.println("Entro funcion");
+            readerWriter.write(HTTPBuilder.response(200,f.apply(request)));
         }else{
             readerWriter.write(HTTPBuilder.response(404,"<h1>Recurso no encontrado</h1>"));
         }

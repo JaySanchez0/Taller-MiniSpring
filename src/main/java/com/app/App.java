@@ -1,5 +1,7 @@
 package com.app;
 
+import com.model.People;
+
 import static com.app.ResponseJson.json;
 import static com.server.Server.*;
 
@@ -10,6 +12,12 @@ public class App {
         port(getPort());
         staticFiles("static");
         get("/peoples",(request)->json(service.getPeoples()));
+        get("/addPeople",(request)->{
+            System.out.println(request.getParameter("name")+" age:"+request.getParameter("age")+" country:"+request.getParameter("country"));
+            System.out.println();
+           service.addPeople(new People(request.getParameter("name"),Integer.parseInt(request.getParameter("age")), request.getParameter("country")));
+           return "";
+        });
     }
 
     static int getPort() {

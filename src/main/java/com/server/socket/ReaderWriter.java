@@ -1,10 +1,11 @@
 package com.server.socket;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.net.Socket;
+import java.nio.ByteBuffer;
 
 public class ReaderWriter {
 
@@ -12,6 +13,8 @@ public class ReaderWriter {
 
     private PrintWriter out;
 
+    /**
+    /**
     /**
      * Read Writer sobre el socket
      */
@@ -46,6 +49,27 @@ public class ReaderWriter {
         try {
             out.println(content);
             out.close();
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     *
+     * @param img imagen a entregar al cliente
+     * @param ext extencion de la imagen
+     * @param client el socket a quien tengo que entregar la imagen
+     */
+    public void write(BufferedImage img, String ext, Socket client,String header){
+        try {
+            ByteArrayOutputStream by = new ByteArrayOutputStream();
+            ext = ext.substring(1);
+            ImageIO.write(img,ext,by);
+            out.write(header);
+            client.getOutputStream().write(by.toByteArray());
+            client.getOutputStream().flush();
+            client.getOutputStream().close();
             in.close();
         } catch (IOException e) {
             e.printStackTrace();

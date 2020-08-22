@@ -1,3 +1,30 @@
-body{
-background:blue;
+*{
+margin:0px;
+padding:0px;
+}
+
+.header {
+    text-align:center;
+    background:MediumSeaGreen;
+    color:white;
+}
+
+#peoples{
+    width:800px;
+    height:450px;
+    overflow:scroll;
+    background:MediumSeaGreen;
+    color:white;
+}
+#peoples div{
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    border:1px solid black;
+}
+
+#peoples div div{
+    width:33%;
+    padding:20px;
+    border: none;
 }

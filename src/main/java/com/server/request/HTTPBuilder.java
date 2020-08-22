@@ -13,4 +13,9 @@ public class HTTPBuilder {
         return null;
     }
 
+    public static String responseImage(String ext){
+        ext = ext.substring(1);
+        return "\"HTTP/1.1 200 OK\\r\\nContent-Type: image/"+ext+"\\r\\n\\r\\n\"";
+    }
+
 }
