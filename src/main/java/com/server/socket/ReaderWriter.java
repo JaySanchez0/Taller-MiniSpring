@@ -68,9 +68,8 @@ public class ReaderWriter {
             ByteArrayOutputStream by = new ByteArrayOutputStream();
             ext = ext.substring(1).toLowerCase();
             ImageIO.write(img,ext,by);
-            byte[] arr = by.toByteArray();
-            out.write(HTTPBuilder.responseImage(ext,arr.length));
-            client.getOutputStream().write(arr);
+            client.getOutputStream().write(HTTPBuilder.responseImage(ext,by.toByteArray().length).getBytes());
+            client.getOutputStream().write(by.toByteArray());
             client.getOutputStream().flush();
             client.getOutputStream().close();
             in.close();
