@@ -1,11 +1,9 @@
 package com.server;
 
 import com.server.request.Request;
-import com.server.socket.FunctionRequest;
-import com.server.socket.SocketApp;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 import java.io.File;
-import java.io.IOException;
 
 import static junit.framework.Assert.*;
 
