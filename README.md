@@ -52,9 +52,16 @@ Al pedir /style.css deberia mostrar la hoja de estilos.
 
 ![img](img/css.PNG)
 
+Al pedir /porter2.PNG deberia mostrar la imagen
+
+![img](img/imagen.PNG) 
+
 
 
 ### Referencias
 
 [Imagenes socket](https://stackoverflow.com/questions/25086868/how-to-send-images-through-sockets-in-java)
+
+
+[headers para imagenes](https://stackoverflow.com/questions/14728125/how-do-i-send-an-image-over-http-protocol-in-c)
 

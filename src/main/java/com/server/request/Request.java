@@ -127,7 +127,6 @@ public class Request {
         for(String sq: params){
             String[] itemQuery = sq.split("=");
             map.put(itemQuery[0],itemQuery[1]);
-            System.out.println(itemQuery[0]+" "+itemQuery[1]);
         }
         return map;
     }
