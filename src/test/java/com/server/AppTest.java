@@ -1,5 +1,9 @@
 package com.server;
+import com.server.socket.SocketApp;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 
 import static junit.framework.Assert.assertTrue;
 
@@ -8,8 +12,11 @@ import static junit.framework.Assert.assertTrue;
  */
 public class AppTest{
 
+    public AppTest(){
+    }
+
     @Test
-    public void shouldBeAccepted(){
+    public void shouldBeFindAnOperation(){
         assertTrue(true);
     }
 

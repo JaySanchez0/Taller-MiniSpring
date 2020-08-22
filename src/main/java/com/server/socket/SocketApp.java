@@ -24,20 +24,34 @@ public class SocketApp extends ServerSocket implements Runnable {
 
     private Thread thread;
 
+    private static SocketApp app;
+
+    public static SocketApp getInstance(int port){
+        if(app==null) {
+            try {
+                app = new SocketApp(port);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return app;
+    }
+
     /**
      *
      * @throws IOException si el puerto no esta disponible
      */
-    public SocketApp(int port) throws IOException {
+    private SocketApp(int port) throws IOException {
         super(port);
         readerWriter = new ReaderWriter();
         fileResolve = new FileResolve();
         isRunning = true;
         thread = new Thread(this);
+        thread.start();
         System.out.println("Server Listening ........");
     }
 
-    public SocketApp() throws IOException {
+    private SocketApp() throws IOException {
         this(80);
     }
 

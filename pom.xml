@@ -39,7 +39,5 @@
           <version>5.7.0-M1</version>
           <scope>test</scope>
       </dependency>
-
-
   </dependencies>
 </project>
