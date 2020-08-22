@@ -8,6 +8,10 @@ import static com.server.Server.*;
 public class App {
     private static Service service = new Service();
 
+    /**
+     * Controlador Rutas
+     * @param args
+     */
     public static void main(String[] args){
         port(getPort());
         staticFiles("static");
@@ -20,6 +24,10 @@ public class App {
         });
     }
 
+    /**
+     *
+     * @return puerto por el cual se ejecutara el servidor
+     */
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));

@@ -15,6 +15,9 @@ public class DBClient {
 
     private Connection con;
 
+    /**
+     * Cliente de la base de datos
+     */
     public DBClient(){
         try {
             Class.forName("org.postgresql.Driver");
@@ -30,6 +33,10 @@ public class DBClient {
 
     }
 
+    /**
+     *
+     * @return la lista de todas las personas almacenadas en la base de datos
+     */
     public List<People> peoples(){
         ArrayList<People> peoples=null;
         try {
@@ -50,6 +57,10 @@ public class DBClient {
         return peoples;
     }
 
+    /**
+     * Guarda en la base de datos
+     * @param people objeto persona a almacenar
+     */
     public void save(People people){
         try {
             PreparedStatement st = con.prepareStatement("insert into people(age,name,country) values(?,?,?)");
@@ -63,9 +74,5 @@ public class DBClient {
         } catch (SQLException throwables) {
             //throwables.printStackTrace();
         }
-    }
-
-    public static void main(String[] args){
-        DBClient cli = new DBClient();
     }
 }
