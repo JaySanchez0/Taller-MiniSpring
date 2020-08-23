@@ -8,6 +8,10 @@ Jeisson Geovanny Sanchez Ramos
 
 [ver](https://enigmatic-springs-51558.herokuapp.com/)
 
+### Documento Arquitectura
+
+[ver](AREP_T_03.pdf)
+
 ### JavaDoc
 
 [ver](javadoc)
