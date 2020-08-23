@@ -7,9 +7,12 @@ public class HTTPBuilder {
      * @param text contenido a ser entregado al cliente
      * @return
      */
-    public static String response(int status,String text){
+    public static String response(int status,String text,String ext){
+        if(ext.equals(".css")) ext = "css";
+        else if(ext.contains(".js")) ext="javascript";
+        else if(ext.equals(".txt")) ext="plain";
         if(status==404) return "HTTP/1.1 404 NOT FOUND\r\n\r\n"+text;
-        else if(status==200)return "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n"+text;
+        else if(status==200)return "HTTP/1.1 200 OK\r\nContent-Type: text/"+ext+"\r\n\r\n"+text;
         return null;
     }
 

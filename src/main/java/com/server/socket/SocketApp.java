@@ -98,14 +98,14 @@ public class SocketApp extends ServerSocket implements Runnable {
         Function<Request,String> f = procedures.get(new FunctionRequest(request.getPath(),request.getMethod()));
         if(ext!=null && validTextFormat(path) && staticFolder!=null && request.getMethod().equals("GET") && file!=null){
             String content = fileResolve.readFile(file);
-            readerWriter.write(HTTPBuilder.response(200,content));
+            readerWriter.write(HTTPBuilder.response(200,content,ext));
         }else if(ext != null && (ext.equals(".PNG") || ext.equals(".JPG")) && file!=null && request.getMethod().equals("GET")){
             readerWriter.write(fileResolve.getImage(file),ext,client);
         }else if(f!=null){
             //System.out.println("Entro funcion");
-            readerWriter.write(HTTPBuilder.response(200,f.apply(request)));
+            readerWriter.write(HTTPBuilder.response(200,f.apply(request),".txt"));
         }else{
-            readerWriter.write(HTTPBuilder.response(404,"<h1>Recurso no encontrado</h1>"));
+            readerWriter.write(HTTPBuilder.response(404,"<h1>Recurso no encontrado</h1>","txt"));
         }
         client.close();
     }
