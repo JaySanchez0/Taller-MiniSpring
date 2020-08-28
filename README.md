@@ -37,7 +37,7 @@ Para esta aplicacion el controlador es la clase AppControler que se encuentra en
 
 La clase a quien le pasamos nuestro controlador es com.app.App
 
-### Comando de ejecucion:
+### Comando de ejecucion MicroSpring:
 
 
 ~~~
