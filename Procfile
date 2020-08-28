@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.app.App
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.app.App com.app.Controller.AppController
