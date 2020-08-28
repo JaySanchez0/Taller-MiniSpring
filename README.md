@@ -17,6 +17,27 @@ Spark
 
 [ver](https://enigmatic-springs-51558.herokuapp.com/)
 
+### Se volvio a escribir los metodos definidos para que la pagina main funcione
+ademas se definieron suma de 2 numero 
+
+Suma
+
+[https://floating-everglades-57412.herokuapp.com/suma?a=2&&b=7](https://floating-everglades-57412.herokuapp.com/suma?a=2&&b=7)
+
+Multiplicacion
+
+[https://floating-everglades-57412.herokuapp.com/mult?a=2&&b=7](https://floating-everglades-57412.herokuapp.com/mult?a=2&&b=7)
+
+Para esta aplicacion el controlador es la clase AppControler que se encuentra en el package com.app.Controller
+
+La clase a quien le pasamos nuestro controlador es com.app.App
+
+### Comando de ejecucion:
+
+~~~
+    java  -cp target/classes:target/dependency/* com.app.App com.app.Controller.AppController
+~~~
+
 ### Documento Arquitectura
 
 [ver](AREP_T_03.pdf)
