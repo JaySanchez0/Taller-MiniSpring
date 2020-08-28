@@ -39,9 +39,12 @@ La clase a quien le pasamos nuestro controlador es com.app.App
 
 ### Comando de ejecucion:
 
+
 ~~~
-    java  -cp target/classes:target/dependency/* com.app.App com.app.Controller.AppController
+    mvn exec:java -Dexec.mainClass=com.app.App -Dexec.args=com.app.Controller.AppController
 ~~~
+
+Al ejecutarlo por defecto en nuestro entorno local corre por el puerto 80
 
 ### Documento Arquitectura
 
