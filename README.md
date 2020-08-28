@@ -28,6 +28,11 @@ Multiplicacion
 
 [https://floating-everglades-57412.herokuapp.com/mult?a=2&&b=7](https://floating-everglades-57412.herokuapp.com/mult?a=2&&b=7)
 
+
+Index
+
+[https://floating-everglades-57412.herokuapp.com/](https://floating-everglades-57412.herokuapp.com/)
+
 Para esta aplicacion el controlador es la clase AppControler que se encuentra en el package com.app.Controller
 
 La clase a quien le pasamos nuestro controlador es com.app.App

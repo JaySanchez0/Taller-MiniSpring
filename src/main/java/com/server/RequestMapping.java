@@ -8,5 +8,9 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
 public @interface RequestMapping {
+    /**
+     *
+     * @return path de la url
+     */
     String value() default  "";
 }
