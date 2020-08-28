@@ -1,10 +1,19 @@
-# AREP-SOCKET-T03
+# AREP-SOCKET-T03  Modificacion a spring
 
 ### Presentado por: 
 
 Jeisson Geovanny Sanchez Ramos
 
+
+Para este trabajo se decidio reutilizar el metodo get ya creado y simplemente hacemos que el metodo get llame al metodo correspondiente al bean. 
+
 ### Link de heroku
+
+MicroSpring
+
+[ver](https://floating-everglades-57412.herokuapp.com/)
+
+Spark
 
 [ver](https://enigmatic-springs-51558.herokuapp.com/)
 
